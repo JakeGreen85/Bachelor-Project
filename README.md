@@ -29,10 +29,12 @@ I worked on the abstract for the research paper, the game design of each version
 ## Abstract
 ### What is the background of the project/idea
 Intrinsic motivation is crucial
+
 Intrinsic motiviation has 3 components:
 - Autonomy
 - Competence
 - Relatedness
+
 All 3 components are good to have (GDT), but not always feasible to implement. Therefore, the goal of the project is to shed light on the question: "Which factor is most important?" or "Which factor has highest effect on users?".
 
 ### What is the motivation for the project/idea
@@ -53,13 +55,19 @@ Hopefully the results of the project is that one factor has a higher effect on m
 The results can help others to implement applications with higher motivational success.
 
 ## Game Design
-### Autonomy
-
-### Competence
-
-### Relatedness
+| Autonomy | Competence | Relatedness |
+| -------- | ---------- | ----------- |
+| Different gloves | Progress bar | Other players in the world |
+| Different landscape | Increase difficulty over time | Leaderboard (Live & Overall) |
+| Different projectiles | Forgiveness mechanic | Trainer |
+| Different songs | Grading system |  |
+|  | Constructive feedback |  |
 
 ## Initial game mecahnics
+Projectiles coming towards you to the beat of a song ([Ride it - Regard](https://www.youtube.com/watch?v=LoSm6VkplJc))
 
+Start & Stop buttons
+
+Shelves for wearable objects (only hats so far)
  
 </details>
