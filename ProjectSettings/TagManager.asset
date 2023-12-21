@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - bincollider
+  - gloves
+  - projectile
   layers:
   - Default
   - TransparentFX

@@ -16,10 +16,7 @@ public class JabProjectile : MonoBehaviour
     void Update()
     {
         transform.Translate(gameObject.transform.forward * Time.deltaTime * speed, Space.World);
-    }
-
-    private void OnTriggerEnter(Collider other) {
-        if(other.tag == "gloves"){
+        if (transform.position.z < 0){
             Destroy(gameObject);
         }
     }
