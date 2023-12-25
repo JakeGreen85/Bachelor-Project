@@ -6,7 +6,13 @@ TagManager:
   tags:
   - bincollider
   - gloves
-  - projectile
+  - Rprojectile
+  - Lprojectile
+  - Mprojectile
+  - playbutton
+  - stopbutton
+  - DuckProjectile
+  - Head
   layers:
   - Default
   - TransparentFX

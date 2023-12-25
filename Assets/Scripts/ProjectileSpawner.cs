@@ -39,6 +39,27 @@ public class ProjectileSpawner : MonoBehaviour
             else if(num == 2){
                 Instantiate(projectiles[2], new Vector3(transform.position.x, transform.position.y + 0.1f, transform.position.z), transform.rotation);
             }
+            else if(num == 3){
+                Instantiate(projectiles[3], new Vector3(transform.position.x, transform.position.y + 0.2f, transform.position.z), transform.rotation);
+            }
+            else if(num == 4){
+                Instantiate(projectiles[4], new Vector3(transform.position.x + 0.1f, transform.position.y + 0.1f, transform.position.z), projectiles[4].transform.rotation);
+            }
+            else if(num == 5){
+                Instantiate(projectiles[5], new Vector3(transform.position.x - 0.1f, transform.position.y + 0.1f, transform.position.z), projectiles[5].transform.rotation);
+            }
+            else if(num == 6){
+                Instantiate(projectiles[6], new Vector3(transform.position.x - 0.15f, transform.position.y, transform.position.z), transform.rotation);
+            }
+            else if(num == 7){
+                Instantiate(projectiles[7], new Vector3(transform.position.x + 0.15f, transform.position.y, transform.position.z), transform.rotation);
+            }
+            else if(num == 8){
+                Instantiate(projectiles[8], new Vector3(transform.position.x + 0.15f, transform.position.y, transform.position.z), transform.rotation);
+            }
+            else if(num == 9){
+                Instantiate(projectiles[9], new Vector3(transform.position.x - 0.15f, transform.position.y, transform.position.z), transform.rotation);
+            }
         }
     }
 
@@ -49,5 +70,6 @@ public class ProjectileSpawner : MonoBehaviour
 
     public void StopPlaying(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        playing = false;
     }
 }
