@@ -13,6 +13,7 @@ TagManager:
   - stopbutton
   - DuckProjectile
   - Head
+  - Glove Selector
   layers:
   - Default
   - TransparentFX

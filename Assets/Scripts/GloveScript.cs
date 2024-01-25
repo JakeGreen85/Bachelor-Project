@@ -29,13 +29,13 @@ public class GloveScript : MonoBehaviour
             other.GetComponent<JabProjectile>().explode();
             Destroy(other.gameObject);
             scoreManager.streak++;
-            scoreManager.score += scoreManager.streak;
+            scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity);
         }
         else if(!rightGlove && other.tag == "Lprojectile"){
             other.GetComponent<JabProjectile>().explode();
             Destroy(other.gameObject);
             scoreManager.streak++;
-            scoreManager.score += scoreManager.streak;
+            scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity);
         }
         else if(other.tag == "Mprojectile"){
             if(rightGlove){
@@ -50,6 +50,10 @@ public class GloveScript : MonoBehaviour
         }
         else if (other.tag == "stopbutton"){
             projectileSpawner.StopPlaying();
+        }
+        if(other.tag == "Glove Selector")
+        {
+            other.GetComponent<GloveCycle>().ChangeGlove();
         }
     }
 }
