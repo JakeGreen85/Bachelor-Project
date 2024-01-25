@@ -98,3 +98,15 @@ Some papers that relate to physical activity and the 3 components of intrinsic m
 
  I was also able to find a questionnaire that was suitable for my user testing ([IMI](https://selfdeterminationtheory.org/intrinsic-motivation-inventory/)), which I will rewrite to fit my project.
 </details>
+<details>
+ 
+<summary>January 25, 2024</summary>
+
+I worked on implementation
+
+- Added Gym environment
+- Added glove customization
+- Optimized music syncronization
+- Added hand velocity calculator
+ 
+</details>
