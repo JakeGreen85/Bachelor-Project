@@ -31,6 +31,7 @@ public class ProjectileSpawner : MonoBehaviour
         print(clip.clip.frequency);
         print(clip.timeSamples);
         if(Mathf.FloorToInt(clip.timeSamples) - (clip.clip.frequency * spawnTime) > lastSpawn){
+            // Instantiate all at the beginning and just enable and move the desired projectile (instead of instantiating every time)
             lastSpawn = Mathf.FloorToInt(clip.timeSamples);
             int num = rnd.Next(projectiles.Length);
             if(num == 0){
