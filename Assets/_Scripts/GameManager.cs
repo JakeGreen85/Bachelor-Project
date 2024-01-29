@@ -40,6 +40,11 @@ public class GameManager : MonoBehaviour
                 break;
         }
         currentManager.SetActive(true);
+        ToggleManager();
     }
 
+    public void ToggleManager()
+    {
+        this.gameObject.SetActive(!this.gameObject.activeInHierarchy);
+    }
 }

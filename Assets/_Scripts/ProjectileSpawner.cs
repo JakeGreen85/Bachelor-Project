@@ -6,33 +6,44 @@ using UnityEngine.SceneManagement;
 
 public class ProjectileSpawner : MonoBehaviour
 {
+    public GameObject[] projectiles1;
+    public GameObject[] projectiles2;
+    public GameObject[] projectiles3;
+    public GameObject[] projectiles4;
+    public GameObject[] projectiles5;
     public GameObject[] projectiles;
+    public AudioSource[] songs;
+    public int song = 0;
     public float BPM;
     public float spawnTime;
     public float lastSpawn;
     public float offset;
     System.Random rnd = new System.Random();
-    public AudioSource clip;
+    public AudioSource source;
     public bool playing;
     public float steps;
 
     private void Start() 
     {
-        lastSpawn = clip.time;
+        source = songs[song];
+        projectiles = projectiles1;
+        lastSpawn = source.time;
         spawnTime = 60f/(BPM*steps);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(!playing){
+        if(!source.isPlaying){
             return;
         }
-        print(clip.clip.frequency);
-        print(clip.timeSamples);
-        if(Mathf.FloorToInt(clip.timeSamples) - (clip.clip.frequency * spawnTime) > lastSpawn){
+        if(source.time >= source.clip.length)
+        {
+            PlayNext();
+        }
+        if(Mathf.FloorToInt(source.timeSamples) - (source.clip.frequency * spawnTime) > lastSpawn){
             // Instantiate all at the beginning and just enable and move the desired projectile (instead of instantiating every time)
-            lastSpawn = Mathf.FloorToInt(clip.timeSamples);
+            lastSpawn = Mathf.FloorToInt(source.timeSamples);
             int num = rnd.Next(projectiles.Length);
             if(num == 0){
                 Instantiate(projectiles[0], new Vector3(transform.position.x + 0.15f, transform.position.y - 0.1f, transform.position.z), transform.rotation); ;
@@ -69,11 +80,20 @@ public class ProjectileSpawner : MonoBehaviour
 
     public void StartPlaying(){
         playing = true;
-        clip.Play();
+        source.PlayScheduled(AudioSettings.dspTime + 2);
     }
 
     public void StopPlaying(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         playing = false;
     }
+
+    void PlayNext()
+    {
+        source.Pause();
+        song++;
+        source = songs[song];
+        StartPlaying();
+    }
+
 }
