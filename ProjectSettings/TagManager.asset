@@ -14,6 +14,7 @@ TagManager:
   - DuckProjectile
   - Head
   - Glove Selector
+  - GameManager
   layers:
   - Default
   - TransparentFX

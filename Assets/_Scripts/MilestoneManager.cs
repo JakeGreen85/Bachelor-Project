@@ -36,6 +36,9 @@ public class MilestoneManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreTitle;
     [SerializeField] TextMeshProUGUI scoreDescription;
     [SerializeField] TextMeshProUGUI scoreProgress;
+    [SerializeField] TextMeshProUGUI missionComplete;
+    float missionCompleteTime;
+    float displayTime = 3f;
 
     // Start is called before the first frame update
     void Start()
@@ -49,13 +52,17 @@ public class MilestoneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.time > missionCompleteTime + displayTime && missionComplete.gameObject.activeInHierarchy)
+        {
+            missionComplete.gameObject.SetActive(false);
+        }
         scoreProgress.text = scoreManager.score.ToString() + " / " + scoreMissions[scoreMissionIndex].Score.ToString();
         streakProgress.text = scoreManager.streak.ToString() + " / " + streakMissions[streakMissionIndex].Streak.ToString();
         foreach (var mission in scoreMissions)
         {
             if (mission != null && !mission.Completed)
             {
-                if (mission.Score < scoreManager.score)
+                if (mission.Score <= scoreManager.score)
                 {
                     mission.completed();
                     ChangeScoreMissionVisual();
@@ -66,7 +73,7 @@ public class MilestoneManager : MonoBehaviour
         {
             if (mission != null && !mission.Completed)
             {
-                if (mission.Streak < scoreManager.streak)
+                if (mission.Streak <= scoreManager.streak)
                 {
                     mission.completed();
                     ChangeStreakMissionVisual();
@@ -91,5 +98,11 @@ public class MilestoneManager : MonoBehaviour
         scoreDescription.text = scoreMissions[scoreMissionIndex].Description;
         scoreProgress.text = scoreManager.score.ToString() + " / " + scoreMissions[scoreMissionIndex].Score.ToString();
 
+    }
+
+    void CompleteMission()
+    {
+        missionCompleteTime = Time.time;
+        missionComplete.gameObject.SetActive(true);
     }
 }

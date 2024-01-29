@@ -9,20 +9,11 @@ using Oculus.Interaction.Input;
 public class GloveScript : MonoBehaviour
 {
     public bool rightGlove;
-    public SphereCollider handtracking;
-    public SphereCollider controller;
     public ScoreManager scoreManager;
     public ProjectileSpawner projectileSpawner;
-    private void Update() {
-        print(OVRInput.GetActiveController());
-        if(OVRInput.GetActiveController() == OVRInput.Controller.None && !handtracking.enabled){
-            handtracking.enabled = true;
-            controller.enabled = false;
-        }
-        else if(OVRInput.GetActiveController() == OVRInput.Controller.Touch && !controller.enabled){
-            handtracking.enabled = false;
-            controller.enabled = true;
-        }
+    private void Update() 
+    {
+       
     }
     private void OnTriggerEnter(Collider other) {
         if(rightGlove && other.tag == "Rprojectile"){
@@ -54,6 +45,10 @@ public class GloveScript : MonoBehaviour
         if(other.tag == "Glove Selector")
         {
             other.GetComponent<GloveCycle>().ChangeGlove();
+        }
+        if(other.tag == "GameManager")
+        {
+            other.GetComponent<GameManager>().ChangeVariation();
         }
     }
 }

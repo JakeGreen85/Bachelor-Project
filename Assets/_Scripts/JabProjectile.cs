@@ -21,14 +21,14 @@ public class JabProjectile : MonoBehaviour
     {
         transform.Translate(gameObject.transform.forward * Time.deltaTime * speed, Space.World);
         if (tag == "DuckProjectile"){
-            if (transform.position.z < 0){
+            if (transform.position.z < -2){
                 scoreManager.streak++;
                 scoreManager.score += scoreManager.streak * scoreManager.combo;
                 Destroy(gameObject);
             }
         }
         else{
-            if (transform.position.z < 0){
+            if (transform.position.z < -2){
                 Missed();
             }
             if(leftHit && rightHit){
