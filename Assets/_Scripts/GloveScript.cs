@@ -38,6 +38,7 @@ public class GloveScript : MonoBehaviour
         }
         if(other.tag == "playbutton"){
             projectileSpawner.StartPlaying();
+            other.gameObject.SetActive(false);
         }
         else if (other.tag == "stopbutton"){
             projectileSpawner.StopPlaying();

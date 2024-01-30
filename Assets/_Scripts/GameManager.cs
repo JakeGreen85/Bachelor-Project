@@ -6,33 +6,18 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    [SerializeField] GameObject CompetenceManager;
-    [SerializeField] GameObject RelatednessManager;
-    [SerializeField] GameObject AutonomyManager;
     [SerializeField] GameObject[] tutorialSpawners;
     int tutorialIndex = 0;
     GameObject currentManager;
     GameObject[] usedManagers = {};
+    [SerializeField] GameObject visual;
     public bool canChange;
     public bool tutorial;
     public float tutorialLength;
     public float tutorialStartTime;
-
-    private void Start()
-    {
-        if(CompetenceManager != null)
-        {
-            CompetenceManager.SetActive(false);
-        }
-        if(RelatednessManager != null) 
-        { 
-            RelatednessManager.SetActive(false);
-        }
-        if(AutonomyManager != null)
-        {
-            AutonomyManager.SetActive(false);
-        }
-    }
+    public string[] SceneNames = {"Autonomy Variation",
+                                  "Competence Variation",
+                                  "Relatedness Variation"};
 
     private void Update()
     {
@@ -61,28 +46,18 @@ public class GameManager : MonoBehaviour
         {
             return;
         }
-        if (currentManager != null) 
+        if(SceneManager.GetActiveScene().buildIndex == 4)
         {
-            currentManager.SetActive(false);
-            usedManagers.Append(currentManager);
+            SceneManager.LoadScene(0);
         }
-        int num = Random.Range(0, 3);
-        switch (num)
-        {
-            case 0:
-                currentManager = CompetenceManager;
-                break;
-            case 1:
-                currentManager = RelatednessManager;
-                break;
-            case 2:
-                currentManager = AutonomyManager;
-                break;
-            default: 
-                break;
-        }
-        currentManager.SetActive(true);
-        ToggleManager();
+        //string nextScene = SceneNames[Random.Range(0, SceneNames.Length)];
+
+        //while (nextScene == SceneManager.GetActiveScene().name)
+        //{
+        //    nextScene = SceneNames[Random.Range(0, SceneNames.Length)]; ;
+        //    SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
+        //}
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
     public void ToggleManager()
@@ -91,6 +66,8 @@ public class GameManager : MonoBehaviour
         {
             tutorialStartTime = Time.time;
         }
+        visual.SetActive(!visual.activeInHierarchy);
+        gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
     }
 
     public void EndTutorial()
@@ -101,6 +78,5 @@ public class GameManager : MonoBehaviour
         }
         ToggleManager();
         tutorial = false;
-        SceneManager.LoadScene("Main Scene");
     }
 }

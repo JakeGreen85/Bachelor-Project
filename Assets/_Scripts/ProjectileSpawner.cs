@@ -44,7 +44,8 @@ public class ProjectileSpawner : MonoBehaviour
         }
         if(source.time >= source.clip.length)
         {
-            PlayNext();
+            GameObject.Find("Game Manager").GetComponent<GameManager>().ToggleManager();
+            // PlayNext();
         }
         if(Mathf.FloorToInt(source.timeSamples) - (source.clip.frequency * spawnTime) > lastSpawn){
             // Instantiate all at the beginning and just enable and move the desired projectile (instead of instantiating every time)

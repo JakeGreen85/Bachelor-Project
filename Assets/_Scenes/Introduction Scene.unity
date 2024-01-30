@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10827134, g: 0.2680328, b: 0.42701465, a: 1}
+  m_IndirectSpecularColor: {r: 0.10867375, g: 0.26845798, b: 0.42459977, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -876,7 +876,7 @@ Transform:
   m_GameObject: {fileID: 207352245}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.045, y: 0.779, z: 0.072}
+  m_LocalPosition: {x: 0.013, y: 0.779, z: 0.243}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -895,19 +895,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56f1ff8eb513d4b44904e50364d70b44, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CompetenceManager: {fileID: 0}
-  RelatednessManager: {fileID: 0}
-  AutonomyManager: {fileID: 0}
   tutorialSpawners:
   - {fileID: 346002706}
   - {fileID: 1619798699}
   - {fileID: 542570512}
   - {fileID: 1421232146}
   - {fileID: 1478220632}
+  visual: {fileID: 0}
   canChange: 0
   tutorial: 1
   tutorialLength: 2
   tutorialStartTime: 0
+  SceneNames:
+  - Autonomy Variation
+  - Competence Variation
+  - Relatedness Variation
 --- !u!65 &207352248
 BoxCollider:
   m_ObjectHideFlags: 0
