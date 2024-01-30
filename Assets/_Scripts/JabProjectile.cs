@@ -13,7 +13,7 @@ public class JabProjectile : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        scoreManager = GameObject.Find("Score Canvas").GetComponent<ScoreManager>();
+        scoreManager = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
     }
 
     // Update is called once per frame

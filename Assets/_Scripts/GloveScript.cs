@@ -46,7 +46,11 @@ public class GloveScript : MonoBehaviour
         {
             other.GetComponent<GloveCycle>().ChangeGlove();
         }
-        if(other.tag == "GameManager")
+        if (other.tag == "Projectile Selector")
+        {
+            other.GetComponent<ProjectileCycle>().CycleProjectiles();
+        }
+        if (other.tag == "GameManager")
         {
             other.GetComponent<GameManager>().ChangeVariation();
         }

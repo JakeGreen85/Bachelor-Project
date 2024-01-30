@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+// TODO:
+// - Make sure when all missions are complete, then the text is removed
+
 public class MilestoneManager : MonoBehaviour
 {
     [SerializeField] ScoreManager scoreManager;
@@ -38,7 +41,7 @@ public class MilestoneManager : MonoBehaviour
     [SerializeField] TextMeshProUGUI scoreProgress;
     [SerializeField] TextMeshProUGUI missionComplete;
     float missionCompleteTime;
-    float displayTime = 3f;
+    float displayTime = 1.5f;
 
     // Start is called before the first frame update
     void Start()
@@ -52,6 +55,10 @@ public class MilestoneManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(Time.time < missionCompleteTime + displayTime && !missionComplete.gameObject.activeInHierarchy) 
+        {
+            missionComplete.gameObject.SetActive(true);
+        }
         if(Time.time > missionCompleteTime + displayTime && missionComplete.gameObject.activeInHierarchy)
         {
             missionComplete.gameObject.SetActive(false);
@@ -65,6 +72,7 @@ public class MilestoneManager : MonoBehaviour
                 if (mission.Score <= scoreManager.score)
                 {
                     mission.completed();
+                    missionCompleteTime = Time.time;
                     ChangeScoreMissionVisual();
                 }
             }
@@ -76,6 +84,7 @@ public class MilestoneManager : MonoBehaviour
                 if (mission.Streak <= scoreManager.streak)
                 {
                     mission.completed();
+                    missionCompleteTime = Time.time;
                     ChangeStreakMissionVisual();
                 }
             }
@@ -100,9 +109,4 @@ public class MilestoneManager : MonoBehaviour
 
     }
 
-    void CompleteMission()
-    {
-        missionCompleteTime = Time.time;
-        missionComplete.gameObject.SetActive(true);
-    }
 }

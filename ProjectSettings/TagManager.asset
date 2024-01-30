@@ -16,6 +16,7 @@ TagManager:
   - Glove Selector
   - GameManager
   - Projectile Selector
+  - StartButton
   layers:
   - Default
   - TransparentFX
