@@ -15,9 +15,6 @@ public class GameManager : MonoBehaviour
     public bool tutorial;
     public float tutorialLength;
     public float tutorialStartTime;
-    public string[] SceneNames = {"Autonomy Variation",
-                                  "Competence Variation",
-                                  "Relatedness Variation"};
 
     private void Update()
     {
@@ -48,7 +45,7 @@ public class GameManager : MonoBehaviour
         }
         if(SceneManager.GetActiveScene().buildIndex == 4)
         {
-            SceneManager.LoadScene(0);
+            SceneManager.LoadScene(0, LoadSceneMode.Single);
         }
         //string nextScene = SceneNames[Random.Range(0, SceneNames.Length)];
 
@@ -57,7 +54,8 @@ public class GameManager : MonoBehaviour
         //    nextScene = SceneNames[Random.Range(0, SceneNames.Length)]; ;
         //    SceneManager.UnloadSceneAsync(SceneManager.GetActiveScene().buildIndex);
         //}
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
+        
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1, LoadSceneMode.Single);
     }
 
     public void ToggleManager()
@@ -67,7 +65,7 @@ public class GameManager : MonoBehaviour
             tutorialStartTime = Time.time;
         }
         visual.SetActive(!visual.activeInHierarchy);
-        gameObject.GetComponent<BoxCollider>().enabled = !gameObject.GetComponent<BoxCollider>().enabled;
+        gameObject.GetComponent<BoxCollider>().enabled = true;
     }
 
     public void EndTutorial()

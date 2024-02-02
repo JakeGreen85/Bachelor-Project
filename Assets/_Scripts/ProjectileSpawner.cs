@@ -23,6 +23,7 @@ public class ProjectileSpawner : MonoBehaviour
     public bool playing;
     public float steps;
     public bool mute;
+    public bool manager = false;
 
     private void Start() 
     {
@@ -42,9 +43,10 @@ public class ProjectileSpawner : MonoBehaviour
         if(!source.isPlaying){
             return;
         }
-        if(source.time >= source.clip.length)
+        if(source.time >= source.clip.length - 1 && !manager)
         {
-            GameObject.Find("Game Manager").GetComponent<GameManager>().ToggleManager();
+            StartCoroutine(toggleManager(5));
+            manager = true;
             // PlayNext();
         }
         if(Mathf.FloorToInt(source.timeSamples) - (source.clip.frequency * spawnTime) > lastSpawn){
@@ -73,4 +75,9 @@ public class ProjectileSpawner : MonoBehaviour
         StartPlaying();
     }
 
+    IEnumerator toggleManager(int secs)
+    {
+        yield return new WaitForSeconds(secs);
+        GameObject.Find("Game Manager").GetComponent<GameManager>().ToggleManager();
+    }
 }

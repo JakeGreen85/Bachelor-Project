@@ -32,7 +32,7 @@ public class JabProjectile : MonoBehaviour
                 Missed();
             }
             if(leftHit && rightHit){
-                explode();
+                // explode();
                 scoreManager.streak++;
                 scoreManager.score += scoreManager.streak * scoreManager.combo;
                 Destroy(gameObject);

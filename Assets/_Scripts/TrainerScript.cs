@@ -1,4 +1,3 @@
-using Didimo.Extensions;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -31,6 +30,7 @@ public class TrainerScript : MonoBehaviour
             {
                 lastLine = projectileSpawner.GetComponent<AudioSource>().time;
                 PlayVoiceLine();
+                print("hello");
             }
         }
 

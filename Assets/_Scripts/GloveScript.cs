@@ -17,23 +17,23 @@ public class GloveScript : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other) {
         if(rightGlove && other.tag == "Rprojectile"){
-            other.GetComponent<JabProjectile>().explode();
-            Destroy(other.gameObject);
+            //other.GetComponentInParent<JabProjectile>().explode();
+            Destroy(other.transform.parent.gameObject);
             scoreManager.streak++;
             scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity * scoreManager.combo);
         }
         else if(!rightGlove && other.tag == "Lprojectile"){
-            other.GetComponent<JabProjectile>().explode();
-            Destroy(other.gameObject);
+            //other.GetComponentInParent<JabProjectile>().explode();
+            Destroy(other.transform.parent.gameObject);
             scoreManager.streak++;
             scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity * scoreManager.combo);
         }
         else if(other.tag == "Mprojectile"){
             if(rightGlove){
-                other.GetComponent<JabProjectile>().rightHit = true;
+                other.GetComponentInParent<JabProjectile>().rightHit = true;
             }
             if(!rightGlove){
-                other.GetComponent<JabProjectile>().leftHit = true;
+                other.GetComponentInParent<JabProjectile>().leftHit = true;
             }
         }
         if(other.tag == "playbutton"){

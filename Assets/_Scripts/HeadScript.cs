@@ -8,7 +8,7 @@ public class HeadScript : MonoBehaviour
 {
     private void OnTriggerEnter(Collider other) {
         if(other.tag == "DuckProjectile"){
-            other.GetComponent<JabProjectile>().Missed();
+            other.GetComponentInParent<JabProjectile>().Missed();
         }
     }
 }
