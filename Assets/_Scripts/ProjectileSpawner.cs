@@ -24,6 +24,7 @@ public class ProjectileSpawner : MonoBehaviour
     public float steps;
     public bool mute;
     public bool manager = false;
+    public int lastNum;
 
     private void Start() 
     {
@@ -53,6 +54,10 @@ public class ProjectileSpawner : MonoBehaviour
             // Instantiate all at the beginning and just enable and move the desired projectile (instead of instantiating every time)
             lastSpawn = Mathf.FloorToInt(source.timeSamples);
             int num = Random.Range(0, projectiles.Length);
+            if(lastNum >= 3){
+                num = Random.Range(0, 3);
+            }
+            lastNum = num;
             Instantiate(projectiles[num], transform.position, transform.rotation);
         }
     }

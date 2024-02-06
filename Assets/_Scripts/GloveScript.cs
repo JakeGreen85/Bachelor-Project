@@ -11,19 +11,20 @@ public class GloveScript : MonoBehaviour
     public bool rightGlove;
     public ScoreManager scoreManager;
     public ProjectileSpawner projectileSpawner;
-    private void Update() 
+    private void Start() 
     {
-       
+        scoreManager = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
     }
+
     private void OnTriggerEnter(Collider other) {
         if(rightGlove && other.tag == "Rprojectile"){
-            //other.GetComponentInParent<JabProjectile>().explode();
+            other.GetComponentInParent<JabProjectile>().explode();
             Destroy(other.transform.parent.gameObject);
             scoreManager.streak++;
             scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity * scoreManager.combo);
         }
         else if(!rightGlove && other.tag == "Lprojectile"){
-            //other.GetComponentInParent<JabProjectile>().explode();
+            other.GetComponentInParent<JabProjectile>().explode();
             Destroy(other.transform.parent.gameObject);
             scoreManager.streak++;
             scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity * scoreManager.combo);

@@ -29,6 +29,9 @@ public class GameManager : MonoBehaviour
                 tutorialSpawners[tutorialIndex].SetActive(false);
                 tutorialIndex++;
                 tutorialStartTime = Time.time;
+                if(tutorialIndex == 5){
+                    tutorialLength = 30f;
+                }
                 if (tutorialIndex >= tutorialSpawners.Length)
                 {
                     EndTutorial();

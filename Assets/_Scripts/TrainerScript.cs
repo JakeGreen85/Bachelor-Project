@@ -7,6 +7,8 @@ public class TrainerScript : MonoBehaviour
 {
     [SerializeField] List<AudioClip> usedVoiceLines;
     [SerializeField] AudioClip[] voicelines;
+    [SerializeField] AudioClip FirstLine;
+    [SerializeField] AudioClip LastLine;
     [SerializeField] AudioSource source;
     [SerializeField] ProjectileSpawner projectileSpawner;
     float lastLine;
@@ -14,7 +16,8 @@ public class TrainerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        source.clip = FirstLine;
+        source.Play();
     }
 
     // Update is called once per frame
@@ -32,6 +35,10 @@ public class TrainerScript : MonoBehaviour
                 PlayVoiceLine();
                 print("hello");
             }
+        }
+        if(projectileSpawner.source.time >= projectileSpawner.source.clip.length - 1){
+            source.clip = LastLine;
+            source.Play();
         }
 
     }
