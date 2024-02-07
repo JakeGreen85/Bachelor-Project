@@ -16,6 +16,14 @@ public class GameManager : MonoBehaviour
     public float tutorialLength;
     public float tutorialStartTime;
 
+    private void Start()
+    {
+        if (tutorial)
+        {
+            tutorialStartTime = Time.time;
+        }
+    }
+
     private void Update()
     {
         if (tutorial)

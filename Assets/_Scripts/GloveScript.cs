@@ -14,6 +14,7 @@ public class GloveScript : MonoBehaviour
     private void Start() 
     {
         scoreManager = GameObject.Find("Game Manager").GetComponent<ScoreManager>();
+        projectileSpawner = GameObject.Find("Projectile Spawner").GetComponent<ProjectileSpawner>();
     }
 
     private void OnTriggerEnter(Collider other) {

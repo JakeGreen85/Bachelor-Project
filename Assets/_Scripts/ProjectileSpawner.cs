@@ -32,6 +32,7 @@ public class ProjectileSpawner : MonoBehaviour
         projectiles = projectiles1;
         lastSpawn = source.time;
         spawnTime = 60f/(BPM*steps);
+        transform.position = new Vector3(transform.position.x, GameObject.Find("CenterEyeAnchor").transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
