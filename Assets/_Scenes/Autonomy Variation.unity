@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.10877304, g: 0.26865244, b: 0.4246285, a: 1}
+  m_IndirectSpecularColor: {r: 0.10867375, g: 0.26845798, b: 0.42459977, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -646,6 +646,10 @@ PrefabInstance:
     - target: {fileID: 100004, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
       propertyPath: m_Name
       value: OVRCameraRig
+      objectReference: {fileID: 0}
+    - target: {fileID: 400002, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2938,7 +2942,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4216412397312176, guid: 8f67ba954612d79418d113a96e41ac76, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.38
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4216412397312176, guid: 8f67ba954612d79418d113a96e41ac76, type: 3}
       propertyPath: m_LocalPosition.y
@@ -4255,7 +4259,7 @@ PrefabInstance:
       objectReference: {fileID: 8300000, guid: ffedf7094c8cb084abb15547afab648a, type: 3}
     - target: {fileID: 3590067807857407884, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: m_PlayOnAwake
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: BPM
@@ -4266,12 +4270,16 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
+      propertyPath: speed
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: steps
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: playing
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: songs.Array.size
@@ -4496,6 +4504,10 @@ PrefabInstance:
     - target: {fileID: 8181074174009974484, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: m_Name
       value: Projectile Spawner
+      objectReference: {fileID: 0}
+    - target: {fileID: 8181074174009974484, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

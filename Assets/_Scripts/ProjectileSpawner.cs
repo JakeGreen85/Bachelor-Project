@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -13,6 +14,7 @@ public class ProjectileSpawner : MonoBehaviour
     public GameObject[] projectiles5;
     public GameObject[] projectiles;
     public AudioSource[] songs;
+    public GameObject playerHeadPosition;
     public int song = 0;
     public float BPM;
     public float spawnTime;
@@ -25,14 +27,17 @@ public class ProjectileSpawner : MonoBehaviour
     public bool mute;
     public bool manager = false;
     public int lastNum;
+    public float speed = 0.5f;
+
 
     private void Start() 
     {
+        playerHeadPosition = GameObject.Find("CenterEyeAnchor").gameObject;
         source = songs[song];
         projectiles = projectiles1;
         lastSpawn = source.time;
         spawnTime = 60f/(BPM*steps);
-        transform.position = new Vector3(transform.position.x, GameObject.Find("CenterEyeAnchor").transform.position.y, transform.position.z);
+        transform.position = new Vector3(transform.position.x, playerHeadPosition.transform.position.y, transform.position.z);
     }
 
     // Update is called once per frame
@@ -51,7 +56,8 @@ public class ProjectileSpawner : MonoBehaviour
             manager = true;
             // PlayNext();
         }
-        if(Mathf.FloorToInt(source.timeSamples) - (source.clip.frequency * spawnTime) > lastSpawn){
+        transform.Translate(new Vector3(transform.position.x - playerHeadPosition.transform.position.x, 0, 0) * Time.deltaTime * speed, Space.Self);
+        if (Mathf.FloorToInt(source.timeSamples) - (source.clip.frequency * spawnTime) > lastSpawn){
             // Instantiate all at the beginning and just enable and move the desired projectile (instead of instantiating every time)
             lastSpawn = Mathf.FloorToInt(source.timeSamples);
             int num = Random.Range(0, projectiles.Length);
