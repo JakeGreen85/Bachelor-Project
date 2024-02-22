@@ -9,27 +9,22 @@ using TMPro;
 public class MilestoneManager : MonoBehaviour
 {
     [SerializeField] ScoreManager scoreManager;
+    [SerializeField] CompetenceFeedback voiceManager;
     Mission[] streakMissions = { new Mission("10 Streak", "Reach a streak of 10 punches", 10, 0),
                                  new Mission("25 Streak", "Reach a streak of 25 punches", 25, 0),
                                  new Mission("50 Streak", "Reach a streak of 50 punches", 50, 0),
                                  new Mission("100 Streak", "Reach a streak of 100 punches", 100, 0),
-                                 new Mission("250 Streak", "Reach a streak of 250 punches", 250, 0),
-                                 new Mission("500 Streak", "Reach a streak of 500 punches", 500, 0),
-                                 new Mission("1000 Streak", "Reach a streak of 1000 punches", 1000, 0),
-                                 new Mission("2500 Streak", "Reach a streak of 2500 punches", 2500, 0),
-                                 new Mission("5000 Streak", "Reach a streak of 5000 punches", 5000, 0),
-                                 new Mission("10000 Streak", "Reach a streak of 10000 punches", 10000, 0)
+                                 new Mission("200 Streak", "Reach a streak of 200 punches", 200, 0),
     };
-    Mission[] scoreMissions = {  new Mission("50 Score", "Reach a score of 50", 0, 50),
+    Mission[] scoreMissions = {  
                                  new Mission("100 Score", "Reach a score of 100", 0, 100),
-                                 new Mission("250 Score", "Reach a score of 250", 0, 250),
-                                 new Mission("500 Score", "Reach a score of 500", 0, 500),
                                  new Mission("1000 Score", "Reach a score of ´1000", 0, 1000),
                                  new Mission("5000 Score", "Reach a score of 5000", 0, 5000),
                                  new Mission("10000 Score", "Reach a score of 10000", 0, 10000),
                                  new Mission("25000 Score", "Reach a score of 25000", 0, 25000),
                                  new Mission("50000 Score", "Reach a score of 50000", 0, 50000),
-                                 new Mission("100000 Score", "Reach a score of ´100000", 0, 100000)
+                                 new Mission("100000 Score", "Reach a score of 100000", 0, 100000),
+                                 new Mission("250000 Score", "Reach a score of 250000", 0, 250000)
     };
     int scoreMissionIndex = 0;
     int streakMissionIndex = 0;
@@ -74,6 +69,7 @@ public class MilestoneManager : MonoBehaviour
                     mission.completed();
                     missionCompleteTime = Time.time;
                     ChangeScoreMissionVisual();
+                    voiceManager.playScore(scoreManager.score);
                 }
             }
         }

@@ -391,7 +391,7 @@ MonoBehaviour:
   particle: {fileID: 2684792530457199469, guid: 94faae4bf569b994297e7f00ce66ae6c, type: 3}
   leftHit: 0
   rightHit: 0
-  speed: 5
+  speed: 4
 --- !u!1001 &4130957878506488759
 PrefabInstance:
   m_ObjectHideFlags: 0

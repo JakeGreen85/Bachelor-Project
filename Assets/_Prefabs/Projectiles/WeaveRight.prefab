@@ -400,7 +400,7 @@ MonoBehaviour:
   particle: {fileID: 1855340746554395461, guid: 49011e57640af4346b984abcfb1cf581, type: 3}
   leftHit: 0
   rightHit: 0
-  speed: 5
+  speed: 4
 --- !u!1 &7277341724188930944
 GameObject:
   m_ObjectHideFlags: 0

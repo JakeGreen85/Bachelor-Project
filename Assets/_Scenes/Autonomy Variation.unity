@@ -542,6 +542,7 @@ MonoBehaviour:
   - {fileID: 170690675}
   - {fileID: 163265124}
   - {fileID: 659889868}
+  playButton: {fileID: 0}
 --- !u!1001 &95139914
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -649,7 +650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 400004, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -693,7 +694,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 459718, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2037080, guid: 4b650a383c3760f449b65ff48bccdd5f, type: 3}
       propertyPath: field of view
@@ -2542,6 +2543,7 @@ MonoBehaviour:
   gloves:
   - {fileID: 208185543}
   - {fileID: 1502274125}
+  playButton: {fileID: 770941243}
 --- !u!65 &612142252
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3586,6 +3588,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 2
+--- !u!114 &770941249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 770941243}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e019132ab8daaf40ade9c8868688d96, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  projectileSpawner: {fileID: 348833301}
 --- !u!1 &779140303 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 332851903698584989, guid: 12d917826586adf4da625487d9e913c6, type: 3}
@@ -4274,7 +4289,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: steps
-      value: 0.5
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 6024087628654175569, guid: 9f0b875cfe9c6db4ca713681ef4d8f8d, type: 3}
       propertyPath: playing
@@ -5459,8 +5474,16 @@ PrefabInstance:
     m_TransformParent: {fileID: 1477162519}
     m_Modifications:
     - target: {fileID: 1861361909000639932, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1861361909000639932, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
       propertyPath: m_IsTrigger
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5327697049441244222, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5976052735868941803, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
       propertyPath: m_Name
@@ -5542,6 +5565,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5976052735868941803, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
       insertIndex: -1
       addedObject: {fileID: 770941248}
+    - targetCorrespondingSourceObject: {fileID: 5976052735868941803, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 770941249}
   m_SourcePrefab: {fileID: 100100000, guid: 428d8ab7f1bad63438fe7b60f6414cc2, type: 3}
 --- !u!1001 &1159093825
 PrefabInstance:
@@ -7968,7 +7994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Continue?
+  m_text: Please take the headset off
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -7995,8 +8021,8 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 12
-  m_fontSizeBase: 12
+  m_fontSize: 10
+  m_fontSizeBase: 10
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -8031,7 +8057,7 @@ MonoBehaviour:
   m_VertexBufferAutoSizeReduction: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: -0.4552498, y: 0, z: -0.94766974, w: 0}
+  m_margin: {x: -0.3928864, y: -0.0948112, z: -0.6224992, w: -0.051747918}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   _SortingLayer: 0

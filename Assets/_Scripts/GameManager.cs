@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
         }
         visual.SetActive(!visual.activeInHierarchy);
         gameObject.GetComponent<BoxCollider>().enabled = true;
+        Debug.Log("score: " + GetComponent<ScoreManager>().score.ToString());
     }
 
     public void EndTutorial()

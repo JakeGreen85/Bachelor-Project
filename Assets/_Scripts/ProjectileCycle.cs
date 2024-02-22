@@ -10,6 +10,7 @@ public class ProjectileCycle : MonoBehaviour
     [SerializeField] GameObject[] demoProjectiles3;
     [SerializeField] GameObject[] demoProjectiles4;
     [SerializeField] GameObject[] demoProjectiles5;
+    [SerializeField] GameObject playButton;
 
     private void Start()
     {
@@ -37,7 +38,11 @@ public class ProjectileCycle : MonoBehaviour
 
     public void CycleProjectiles()
     {
-        if(projectileSpawner.projectiles == projectileSpawner.projectiles1)
+        if (!playButton.GetComponent<MeshRenderer>().enabled)
+        {
+            EnablePlayButton();
+        }
+        if (projectileSpawner.projectiles == projectileSpawner.projectiles1)
         {
             projectileSpawner.projectiles = projectileSpawner.projectiles2;
             foreach(GameObject go in demoProjectiles1)
@@ -97,6 +102,11 @@ public class ProjectileCycle : MonoBehaviour
                 go.SetActive(true);
             }
         }
+    }
 
+    public void EnablePlayButton()
+    {
+        playButton.GetComponent<MeshRenderer>().enabled = true;
+        playButton.GetComponent<BoxCollider>().enabled = true;
     }
 }

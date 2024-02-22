@@ -19,12 +19,14 @@ public class GloveScript : MonoBehaviour
 
     private void OnTriggerEnter(Collider other) {
         if(rightGlove && other.tag == "Rprojectile"){
+            GetComponent<VelocityCalculator>().setVelocity();
             other.GetComponentInParent<JabProjectile>().explode();
             Destroy(other.transform.parent.gameObject);
             scoreManager.streak++;
             scoreManager.score += Mathf.FloorToInt(scoreManager.streak * GetComponent<VelocityCalculator>().velocity * scoreManager.combo);
         }
         else if(!rightGlove && other.tag == "Lprojectile"){
+            GetComponent<VelocityCalculator>().setVelocity();
             other.GetComponentInParent<JabProjectile>().explode();
             Destroy(other.transform.parent.gameObject);
             scoreManager.streak++;
@@ -42,9 +44,7 @@ public class GloveScript : MonoBehaviour
             projectileSpawner.StartPlaying();
             other.gameObject.SetActive(false);
         }
-        else if (other.tag == "stopbutton"){
-            projectileSpawner.StopPlaying();
-        }
+
         if(other.tag == "Glove Selector")
         {
             other.GetComponent<GloveCycle>().ChangeGlove();
